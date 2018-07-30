@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actions from '../actions/index'
+import * as actions from "../actions/index";
 
 class CommentBox extends Component {
   state = {
-    comment: ""
+    comment: "HELLO"
   };
 
   handleChange = e => {
@@ -18,9 +18,9 @@ class CommentBox extends Component {
 
     // Call an action creator
     // And save the comment
-    this.props.saveComment(this.state.comment)
-
-    this.setState({ comment: "" });
+    let updatedComment = this.props.saveComment(this.state.comment);
+    
+    this.setState({ comment: updatedComment.payload });
   };
 
   render() {
@@ -36,4 +36,7 @@ class CommentBox extends Component {
   }
 }
 
-export default connect(null)(CommentBox);
+export default connect(
+  null,
+  actions
+)(CommentBox);
