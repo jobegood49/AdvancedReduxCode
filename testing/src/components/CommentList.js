@@ -19,6 +19,7 @@ class CommentList extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log("the mapsToProps is invoked")
     return { comments: state.comments}
 }
 
